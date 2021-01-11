@@ -19,6 +19,7 @@ void AddPasswordDialog::on_addButton_clicked ( ) {
   if ( password == "" || title == "" ) {
     QMessageBox::warning ( this, "Incomplet",
                "Trebuie sa completezi macar parola si titlul!" );
+    return;
   }
   emit addPassword ( title, username, password, url, notes );
 }

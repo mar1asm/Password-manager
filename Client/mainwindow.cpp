@@ -346,7 +346,7 @@ void MainWindow::on_addButtonClicked ( QString title, QString username,
   int passwordId = passwordsInfo.size ( );
   passwordsInfo.push_back (
       QStringList ( { title, username, password, url, notes } ) );
-  //interfata
+  // interfata
   QWidget *p1 = new QWidget;
   QHBoxLayout *hl = new QHBoxLayout ( p1 );
   QLabel *site = new QLabel ( title );
@@ -416,6 +416,7 @@ void MainWindow::on_deletePassword ( ) {
       entries[ i ]->itemAt ( j )->widget ( )->setProperty ( "id", index - 1 );
     }
   listItems.removeAt ( id );
+  passwordsInfo.removeAt ( id );
   passwords.removeAt ( id );
   titles.removeAt ( id );
 }
@@ -516,6 +517,13 @@ void MainWindow::on_logout ( ) { // cand dai logout sa se afiseze pagina de
   }
   delete addNew;
   delete logout;
+
+  passwords.resize ( 0 );
+  titles.resize ( 0 );
+  passwordsInfo.resize ( 0 );
+  entries.resize ( 0 );
+  listItems.resize ( 0 );
+
   showLoginPage ( );
 }
 

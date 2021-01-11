@@ -18,6 +18,11 @@ EditPasswordDialog::~EditPasswordDialog ( ) { delete ui; }
 void EditPasswordDialog::on_cancelButton_clicked ( ) { emit cancelEdit ( ); }
 
 void EditPasswordDialog::on_saveButton_clicked ( ) {
+  if ( ui->titleEdit->text ( ) == "" || ui->passwordEdit->text ( ) == "" ) {
+    QMessageBox::warning ( this, "Incomplet",
+               "Trebuie sa completezi macar parola si titlul!" );
+    return;
+  }
   emit saveEdit ( this->id, ui->titleEdit->text ( ), ui->usernameEdit->text ( ),
           ui->passwordEdit->text ( ), ui->urlEdit->text ( ),
           ui->notesEdit->text ( ) );

@@ -2,6 +2,7 @@
 #define EDITPASSWORDDIALOG_H
 
 #include <QDialog>
+#include <QMessageBox>
 
 namespace Ui {
 class EditPasswordDialog;
